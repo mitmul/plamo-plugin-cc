@@ -1,0 +1,17 @@
+{
+  "name": "plamo-plugin-cc",
+  "owner": {
+    "name": "Shunta Saito",
+    "url": "https://github.com/mitmul"
+  },
+  "description": "PLaMo (Preferred Networks の日本語 LLM) を Claude Code から使うためのプラグイン",
+  "plugins": [
+    {
+      "name": "plamo",
+      "source": "./plugins/plamo",
+      "description": "PLaMo-3.1-Prime を Claude Code から手軽に使う: 質問・Web 検索・翻訳・日本語校正・Deep Research と、PLaMo API を使うコードを書くためのガイド",
+      "category": "productivity",
+      "tags": ["plamo", "japanese", "translation", "web-search", "deep-research", "llm"]
+    }
+  ]
+}
