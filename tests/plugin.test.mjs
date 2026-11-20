@@ -70,6 +70,21 @@ test('the marketplace lists the plugin from its directory', () => {
   assert.equal(entry.version, undefined, 'the version lives in plugin.json only');
 });
 
+test('the plugin has an icon the plugin directory accepts', () => {
+  // The directory takes a square PNG of 512 to 2048 px on each side, under 2 MB,
+  // and `claude plugin validate` checks none of that. It finds the file by this
+  // path, so the manifest needs no `icon` field, which Claude Code before
+  // v2.1.281 reports as unknown.
+  const icon = fs.readFileSync(path.join(PLUGIN_ROOT, '.claude-plugin', 'icon.png'));
+  assert.equal(icon.toString('latin1', 0, 8), '\x89PNG\r\n\x1a\n', 'a PNG file');
+  assert.equal(icon.toString('latin1', 12, 16), 'IHDR');
+  const [width, height] = [icon.readUInt32BE(16), icon.readUInt32BE(20)];
+  assert.equal(width, height, 'square');
+  assert.ok(width >= 512 && width <= 2048, `${width} px on each side`);
+  assert.ok(icon.length < 2_000_000, 'under 2 MB');
+  assert.equal(manifest.icon, undefined);
+});
+
 test('the MCP server entry points at the server and only uses declared options', () => {
   const server = mcp.mcpServers[SERVER_NAME];
   assert.equal(server.command, 'node');
