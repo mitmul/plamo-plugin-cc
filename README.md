@@ -50,7 +50,7 @@ claude plugin install plamo@plamo-plugin-cc
 リポジトリを手元に置いて試すだけなら、インストールせずに 1 セッションだけ読み込むこともできます。
 
 ```bash
-git clone git@github.com:mitmul/plamo-plugin-cc.git
+git clone https://github.com/mitmul/plamo-plugin-cc.git
 claude --plugin-dir ./plamo-plugin-cc/plugins/plamo
 ```
 
