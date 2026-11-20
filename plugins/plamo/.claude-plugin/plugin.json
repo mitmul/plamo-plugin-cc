@@ -1,0 +1,27 @@
+{
+  "name": "plamo",
+  "displayName": "PLaMo",
+  "version": "0.1.0",
+  "description": "PLaMo-3.1-Prime を Claude Code から手軽に使う: 質問・Web 検索・翻訳・日本語校正・Deep Research と、PLaMo API を使うコードを書くためのガイド",
+  "author": {
+    "name": "Shunta Saito",
+    "url": "https://github.com/mitmul"
+  },
+  "homepage": "https://github.com/mitmul/plamo-plugin-cc",
+  "repository": "https://github.com/mitmul/plamo-plugin-cc",
+  "license": "MIT",
+  "keywords": ["plamo", "preferred-networks", "japanese", "translation", "web-search", "deep-research", "llm"],
+  "userConfig": {
+    "api_key": {
+      "type": "string",
+      "title": "PLaMo API key",
+      "description": "PLaMo API の API キー (https://console.platform.preferredai.jp/profile で発行)。空欄の場合は環境変数 PLAMO_API_KEY を使います。",
+      "sensitive": true
+    },
+    "model": {
+      "type": "string",
+      "title": "Model",
+      "description": "既定で使うモデル ID。空欄なら plamo-3.1-prime。"
+    }
+  }
+}
